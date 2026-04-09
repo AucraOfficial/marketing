@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=Roboto+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+
+  --color-canvas: #f7faf3;
+  --color-surface: #f2f5ee;
+  --color-surface-1: #ecf0e8;
+  --color-surface-2: #e6ebe2;
+  --color-surface-3: #dde2d9;
+  --color-primary: #3a6700;
+  --color-primary-dim: #2e5200;
+  --color-primary-lit: #4a7310;
+  --color-on-primary: #ffffff;
+  --color-ink: #191d18;
+  --color-ink-2: #404940;
+  --color-ink-3: #6e786b;
+  --color-faint: #c2c9bd;
+  --color-ok: #1a6b35;
+  --color-ok-tint: #e6f4ed;
+  --color-error: #ba1a1a;
+  --color-error-tint: #ffdad6;
+
+  --shadow-ambient: 0px 12px 32px rgba(25, 29, 24, 0.06);
+}
+
+@layer base {
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-on-primary rounded-none px-6 py-3 font-semibold font-display hover:bg-primary-dim transition-colors border border-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-ink rounded-none px-6 py-3 font-semibold font-display hover:bg-surface-1 transition-colors border border-faint;
+  }
+
+  .card-blueprint {
+    @apply bg-surface-1 rounded-none p-6 transition-all border border-faint/20 hover:border-primary/30 relative;
+  }
+
+  .input-underline {
+    @apply bg-transparent border-b border-faint focus:border-primary outline-none py-2 transition-colors rounded-none;
+  }
+
+  .label-caps {
+    @apply text-[9px] uppercase tracking-[0.2em] text-ink-3 font-bold;
+  }
+
+  .blueprint-line-h {
+    @apply absolute h-[1px] bg-faint/20 w-screen left-1/2 -translate-x-1/2 pointer-events-none;
+  }
+
+  .blueprint-line-v {
+    @apply absolute w-[1px] bg-faint/20 h-screen top-1/2 -translate-y-1/2 pointer-events-none;
+  }
+}
